@@ -1,19 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Formulario from './Componentes/Formulario';
-import guardar from './Componentes/Formulario';
+import Navegacion from './Navegacion';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Formulario>
+    <Navegacion>
 
+    </Navegacion>
 
-      </Formulario>
-      
-
-      <StatusBar style="auto" />
-    </View>
   );
 }
 
