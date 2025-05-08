@@ -19,10 +19,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#C9E0BD'
     },
     titulo: {
         fontSize: 25,
         paddingBottom: 10,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#4F8B2E'
       },
 });
