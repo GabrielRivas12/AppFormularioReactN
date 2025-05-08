@@ -3,18 +3,33 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Home from './Screens/Home';
 import Formulario from './Componentes/Formulario';
+import Lista from './Screens/Lista';
 
-const StackForms = createStackNavigator();
 
 function Navegacion() {
     return (
         <NavigationContainer>
-            <StackForms.Navigator initialRouteName="Home">
-                <StackForms.Screen name="Home" component={Home} />
-                <StackForms.Screen name="Formulario" component={Formulario} />
-            </StackForms.Navigator>
+        
+            <StackDetalles>
+
+            </StackDetalles>
+        
         </NavigationContainer>
     );
 }
+const Stack = createStackNavigator();
+
+function StackDetalles() {
+    return (
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Formulario" component={Formulario} />
+                <Stack.Screen name="Lista" component={Lista} />
+
+
+            </Stack.Navigator>
+    )
+}
+
 
 export default Navegacion;

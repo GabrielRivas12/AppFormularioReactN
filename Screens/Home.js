@@ -14,9 +14,7 @@ export default function Home() {
                 />
             </View>
 
-            <View style={styles.botonContainer}>
-                <Button title="Lista" />
-            </View>
+           
         </View>
     );
 }

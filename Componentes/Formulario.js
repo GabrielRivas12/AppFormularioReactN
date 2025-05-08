@@ -1,10 +1,14 @@
 import { Text, View, StyleSheet, TextInput, Button, Alert } from 'react-native';
 import React, { useState } from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 
 import { Picker } from '@react-native-picker/picker';
 
+  
+
 function Formulario() {
+
+  const navigation = useNavigation();
 
   const [cedula, setCedula] = useState('');
   const [nombres, setNombres] = useState('');
@@ -42,7 +46,7 @@ function Formulario() {
 
 
   return (
-    <View style={styles.conatinerf}>
+    <View style={styles.conatiner}>
       <Text style={styles.titulo}> Guardar Nuevo cliente </Text>
       <Text style={styles.label}> Cedula </Text>
       <TextInput
@@ -88,7 +92,15 @@ function Formulario() {
           <Picker.Item label="Femenino" value="Femenino" />
         </Picker>
       </View>
-      <Button title="Guardar" onPress={guardar}></Button>
+      <View style={styles.botonGuardar}>
+        <Button title="Guardar" onPress={guardar}></Button>
+      </View>
+
+      <View style={styles.botonContainer}>
+        <Button title="Lista" 
+        onPress={() => navigation.navigate('Lista')}/>
+      </View>
+
     </View>
 
 
@@ -99,7 +111,7 @@ function Formulario() {
 export default Formulario;
 
 const styles = StyleSheet.create({
-  conatinerf: {
+  conatiner: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
@@ -128,7 +140,10 @@ const styles = StyleSheet.create({
     fontSize: 25,
     paddingBottom: 10,
     fontWeight: 'bold'
-  }
+  },
+  botonGuardar: {
+    margin: 10,
+}
 
 
 })
