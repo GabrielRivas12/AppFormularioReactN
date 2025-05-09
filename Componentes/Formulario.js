@@ -1,8 +1,9 @@
-import { Text, View, StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import { Picker } from '@react-native-picker/picker';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -15,16 +16,17 @@ function Formulario() {
   const [apellidos, setApellidos] = useState('');
   const [fechaNacimiento, SetFechaNacimiento] = useState('');
   const [sexo, setSexo] = useState('');
+
   const [clientes, setCliente] = useState([]);
 
   const guardar = () => {
     if (!cedula || !nombres) return null;
     const nuevoCliente = {
-      nuevacedula: cedula,
-      nuevonombres: nombres,
-      nuevoapellidos: apellidos,
-      nuevofechanac: fechaNacimiento,
-      nuevosexo: sexo,
+      Ncedula: cedula,
+      Nnombres: nombres,
+      Napellidos: apellidos,
+      Nfechanac: fechaNacimiento,
+      Nsexo: sexo,
     }
 
     setCliente([nuevoCliente, ...clientes])
@@ -47,8 +49,7 @@ function Formulario() {
 
   return (
     <View style={styles.container}>
-
-      <Text style={styles.titulo}> Guardar Nuevo cliente </Text>
+      <Text style={styles.titulo}> Registro de datos del cliente  </Text>
 
       <View style={styles.containerInput}>
 
@@ -96,16 +97,20 @@ function Formulario() {
             <Picker.Item label="Femenino" value="Femenino" />
           </Picker>
         </View>
+        
       </View>
+      
       <View style={styles.botonGuardar}>
-        <Button title="Guardar" onPress={guardar}></Button>
+        <TouchableOpacity style={styles.boton} onPress={guardar}>
+          <Text style={styles.texto}>Guardar</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.botonContainer}>
-        <Button title="Lista"
-          onPress={() => navigation.navigate('Lista')} />
+        <TouchableOpacity style={styles.boton}  onPress={() => navigation.navigate('Lista', { clientes })}>
+          <Text style={styles.texto}>Lista</Text>
+        </TouchableOpacity>
       </View>
-
     </View>
 
 
@@ -120,7 +125,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    backgroundColor: '#C9E0BD'
+    backgroundColor: '#E6F7E6'
+
   },
   containerInput: {
 
@@ -159,4 +165,27 @@ const styles = StyleSheet.create({
   botonGuardar: {
     margin: 10,
   },
+  boton: {
+    backgroundColor: '#358B47',
+    height: 50,
+    width: 300,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+
+  },
+  texto: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20
+  }
 })
