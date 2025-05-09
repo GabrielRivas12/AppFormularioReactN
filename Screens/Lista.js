@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         alignItems: 'left',
         justifyContent: 'center',
         borderRadius: 5,
-        marginBottom: 10, // <- esto separa las tarjetas
+        marginBottom: 10,
     },
     label: {
         color: '#00000',
